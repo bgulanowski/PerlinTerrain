@@ -25,7 +25,7 @@
     BAVoxelArray *voxels = [[BAVoxelArray voxelArrayInRegion:self.region scale:normalScale precision:4 noise:tg] voxelArrayByRemovingHiddenBits];
     
     [self.userData setObject:voxels forKey:@"Voxels"];
-    [self addProp:[BAProp terrainPropWithRegion:self.region voxels:voxels]];
+    [self addProp:[self.managedObjectContext terrainPropWithRegion:self.region voxels:voxels]];
 }
 
 - (void)recursivelyBuildTerrainWithNoise:(TerrainGenerator *)tg heightLimit:(GLfloat)heightLimit {

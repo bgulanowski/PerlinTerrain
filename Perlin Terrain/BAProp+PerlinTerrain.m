@@ -58,9 +58,9 @@ static inline void copyQuadAndNormalData(BAQuad quad, BAPointf normal, GLfloat *
 
 #define copyVerts(Q, X, Y, Z, N, B) copyQuadAndNormalData(offsetQuad((Q), (X), (Y), (Z)), (N), (B))
 
-@implementation BAProp (PerlinTerrain)
+@implementation NSManagedObjectContext (PerlinTerrain)
 
-+ (BAProp *)terrainPropWithRegion:(BARegionf)region voxels:(BAVoxelArray *)voxels {
+- (BAProp *)terrainPropWithRegion:(BARegionf)region voxels:(BAVoxelArray *)voxels {
     
     static BAQuad lx, rx, ly, ry, lz, rz;
     static BAPointf lxn, rxn, lyn, ryn, lzn, rzn;
@@ -129,12 +129,12 @@ static inline void copyQuadAndNormalData(BAQuad quad, BAPointf normal, GLfloat *
     }
     
     NSUInteger count = nextVert-verts;
-    BAMesh *mesh = [BAMesh meshWithName:nil];
+    BAMesh *mesh = [self meshWithName:nil];
     NSData *vertexData = [NSData dataWithBytesNoCopy:verts length:count*sizeof(GLfloat) freeWhenDone:NO];
     
     mesh.hasNormalsValue = USE_NORMALS;
     mesh.typeValue = GL_QUADS;
-	[mesh addResourcesObject:[BAResource resourceWithType:0 data:vertexData]];
+	[mesh addResourcesObject:[self resourceWithType:0 data:vertexData]];
     [mesh prepareVertexBuffer]; // vertex resource data is discarded
 	
     free(verts);
@@ -142,11 +142,11 @@ static inline void copyQuadAndNormalData(BAQuad quad, BAPointf normal, GLfloat *
 //    NSLog(@"Made %lu quads for %lu voxels (savings of %lu)", count/elementsInQuad, voxels.count, voxels.count * (elementsInVoxel/elementsInQuad) - count/elementsInQuad);
     
     
-    BAPrototype *pt = [BAPrototype prototypeWithName:nil mesh:mesh];
-    BAProp *prop = [BAProp propWithName:nil prototype:pt];
+    BAPrototype *pt = [self prototypeWithName:nil mesh:mesh];
+    BAProp *prop = [self propWithName:nil prototype:pt];
     
-    prop.color = [BAColor randomWarmColor];
-    prop.transform = [BATransform translationWithX:region.origin.p.x y:region.origin.p.y z:region.origin.p.z];
+    prop.color = [self randomWarmColor];
+    prop.transform = [self translationWithX:region.origin.p.x y:region.origin.p.y z:region.origin.p.z];
     
     return prop;
 }

@@ -119,7 +119,7 @@
 
 - (void)awakeFromNib {
 	
-    BAPartition *rootPartition = [BAPartition rootPartitionWithDimension:SPACE_DIMENSION];
+    BAPartition *rootPartition = [self.context rootPartitionWithDimension:SPACE_DIMENSION];
     BAScalef scale;
     scale.s = BAMakeSizef(1.0f/32.0f, 1.0f/48.0f, 1.0f/32.0f);
 
@@ -127,7 +127,7 @@
     nm.gradientStart = -31.0f;
     nm.gradientEnd = 32.0f;
 
-    [[BAStage stage] setPartitionRoot:rootPartition];
+    [[self.context stage] setPartitionRoot:rootPartition];
     [rootPartition recursivelyBuildTerrainWithNoise:nm heightLimit:32.0f];    
     [self prepareCamera];
     
@@ -219,6 +219,7 @@
     sceneView.camera.xLoc  = - 10.0f;
     sceneView.camera.yLoc  = 48.f * 0.5f;
     sceneView.camera.zLoc  = - 10.0f;
+    sceneView.camera.drawDelegate = [self.context stage];
 
 	sceneView.camera.cullingOn = YES;
     

@@ -15,6 +15,6 @@
 
 @class BAVoxelArray;
 
-@interface BAProp (PerlinTerrain)
-+ (BAProp *)terrainPropWithRegion:(BARegionf)region voxels:(BAVoxelArray *)voxels;
+@interface NSManagedObjectContext (PerlinTerrain)
+- (BAProp *)terrainPropWithRegion:(BARegionf)region voxels:(BAVoxelArray *)voxels;
 @end

@@ -11,7 +11,7 @@
 #import <BAFoundation/BANoiseMaker.h>
 
 #import <BAScene/BACameraSetup.h>
-#import <BAScene/BAGroup.h>
+#import <BAScene/BAPropGroup.h>
 #import <BAScene/BAMesh.h>
 #import <BAScene/BAProp.h>
 #import <BAScene/BAPrototype.h>
@@ -216,9 +216,9 @@
 	[cameraSetupPanel setContentView:[cameraSetup view]];	
 	cameraSetup.camera = sceneView.camera;
 
-    sceneView.camera.xLoc  = - 10.0f;
-    sceneView.camera.yLoc  = 48.f * 0.5f;
-    sceneView.camera.zLoc  = - 10.0f;
+//    sceneView.camera.xLoc  = - 10.0f;
+    sceneView.camera.yLoc  = 32.f;
+    sceneView.camera.zLoc  = 10.0f;
     sceneView.camera.drawDelegate = [self.context stage];
 
 	sceneView.camera.cullingOn = YES;

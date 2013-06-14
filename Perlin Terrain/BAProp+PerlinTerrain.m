@@ -9,7 +9,7 @@
 #import "BAProp+PerlinTerrain.h"
 
 #import <BAScene/BAVoxelArray.h>
-#import <BAScene/BAResource.h>
+#import <BAScene/BASceneResource.h>
 
 static inline BAQuad makeQuad(BAPointf p1, BAPointf p2, BAPointf p3, BAPointf p4) {
     

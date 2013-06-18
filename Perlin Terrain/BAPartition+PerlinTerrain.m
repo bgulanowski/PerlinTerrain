@@ -23,28 +23,19 @@
     
     static BAScalef normalScale = {{ 1.0f, 1.0f, 1.0f }};
     BAVoxelArray *voxels = [[BAVoxelArray voxelArrayInRegion:self.region scale:normalScale precision:4 noise:tg] voxelArrayByRemovingHiddenBits];
+    BAProp *prop = [self.managedObjectContext terrainPropWithRegion:self.region voxels:voxels];
     
     [self.userData setObject:voxels forKey:@"Voxels"];
-    [self addProp:[self.managedObjectContext terrainPropWithRegion:self.region voxels:voxels]];
+    [self addProp:prop];
 }
 
 - (void)recursivelyBuildTerrainWithNoise:(TerrainGenerator *)tg heightLimit:(GLfloat)heightLimit {
-    
-    static NSPredicate *filter;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        
-        NSEntityDescription *partitionEntity = [NSEntityDescription entityForName:@"Partition" inManagedObjectContext:BAActiveContext];
-        
-        filter = [NSPredicate predicateWithFormat:@"entity == %@", partitionEntity];
-    });
     
     BOOL hasChildren = NO;
     
     [self subdivide];
     
-    for(BAPartition *child in [[self subgroups] filteredSetUsingPredicate:filter]) {
+    for(BAPartition *child in [self children]) {
         hasChildren = YES;
         if(BAMinYf(child.region) < heightLimit && BAMaxYf(child.region) > -heightLimit)
             [child recursivelyBuildTerrainWithNoise:tg heightLimit:heightLimit];

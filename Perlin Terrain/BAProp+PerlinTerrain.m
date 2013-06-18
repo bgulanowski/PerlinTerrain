@@ -139,7 +139,7 @@ static inline void copyQuadAndNormalData(BAQuad quad, BAPointf normal, GLfloat *
 	
     free(verts);
     
-//    NSLog(@"Made %lu quads for %lu voxels (savings of %lu)", count/elementsInQuad, voxels.count, voxels.count * (elementsInVoxel/elementsInQuad) - count/elementsInQuad);
+    NSLog(@"Made %lu quads for %lu voxels (savings of %lu)", count/elementsInQuad, voxels.count, voxels.count * (elementsInVoxel/elementsInQuad) - count/elementsInQuad);
     
     
     BAPrototype *pt = [self prototypeWithName:nil mesh:mesh];
@@ -147,7 +147,7 @@ static inline void copyQuadAndNormalData(BAQuad quad, BAPointf normal, GLfloat *
     
     prop.color = [self randomWarmColor];
     prop.transform = [self translationWithX:region.origin.p.x y:region.origin.p.y z:region.origin.p.z];
-    
+        
     return prop;
 }
 

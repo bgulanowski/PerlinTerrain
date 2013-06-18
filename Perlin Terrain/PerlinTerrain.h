@@ -9,39 +9,23 @@
 #import <Cocoa/Cocoa.h>
 
 #import <BAFoundation/BANoiseMaker.h>
-#import <CorePlot/CorePlot.h>
-#import <CorePlot/CPTPlot.h>
 
 
-@class TerrainGenerator, CPTGraphHostingView, BAVoxelArray, BASceneView, BACameraSetup;
+@class TerrainGenerator, BASceneView, BACameraSetup;
 
-@interface PerlinTerrain : BAScene <NSApplicationDelegate, CPTPlotDataSource> {
+@interface PerlinTerrain : BAScene <NSApplicationDelegate> {
 	
 	TerrainGenerator *nm;
 	IBOutlet BASceneView *sceneView;
 	BACameraSetup *cameraSetup;
-	BAVoxelArray *voxelArray;
     BAStage *stage;
 
-	CPTGraphHostingView *plotView;
-    NSWindow *plotWindow;
 	NSWindow *terrainWindow;
 	NSWindow *cameraSetupPanel;
-	
-	NSArray *plots;
-	
-	double offset;
-	double inversePersistence;
-	unsigned octavesCount;
 }
 
 @property (assign) IBOutlet NSWindow *plotWindow;
 @property (assign) IBOutlet NSWindow *terrainWindow;
 @property (assign) IBOutlet NSWindow *cameraSetupPanel;
-@property (assign) IBOutlet CPTGraphHostingView *plotView;
-
-@property (nonatomic) double offset;
-@property (nonatomic) double inversePersistence;
-@property (nonatomic) unsigned octavesCount;
 
 @end

@@ -139,7 +139,7 @@ static inline void copyQuadAndNormalData(BAQuad quad, BAPointf normal, GLfloat *
 	
     free(verts);
     
-    NSLog(@"Made %lu quads for %lu voxels (savings of %lu)", count/elementsInQuad, voxels.count, voxels.count * (elementsInVoxel/elementsInQuad) - count/elementsInQuad);
+    NSLog(@"Made %lu quads for %lu voxels (savings of %lu)", (unsigned long) count/elementsInQuad, (unsigned long) voxels.count, (unsigned long) voxels.count * (elementsInVoxel/elementsInQuad) - count/elementsInQuad);
     
     
     BAPrototype *pt = [self prototypeWithName:nil mesh:mesh];

@@ -15,8 +15,8 @@
 		4E6F725B143BC1F10012D9B6 /* BAPartition+PerlinTerrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6F725A143BC1F10012D9B6 /* BAPartition+PerlinTerrain.m */; };
 		4EC219F9143DC82300566E93 /* TerrainGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC219F8143DC82300566E93 /* TerrainGenerator.m */; };
 		4EDE01AB12EB1C420076F1A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		840F5D58177DE71E0033E964 /* BAFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EFE8C616E295A40053A6F0 /* BAFoundation.framework */; };
 		849BD20816BEB93300CFDCCC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849BD20716BEB93300CFDCCC /* CoreVideo.framework */; };
-		84EFE8C916E295A40053A6F0 /* BAFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C616E295A40053A6F0 /* BAFoundation.framework */; };
 		84EFE8CA16E295A40053A6F0 /* BAScene.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C716E295A40053A6F0 /* BAScene.framework */; };
 		84EFE8CB16E295A40053A6F0 /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C816E295A40053A6F0 /* CorePlot.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -27,15 +27,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		4E496548143406F60039A33B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84EFE8C916E295A40053A6F0 /* BAFoundation.framework in CopyFiles */,
 				84EFE8CA16E295A40053A6F0 /* BAScene.framework in CopyFiles */,
 				84EFE8CB16E295A40053A6F0 /* CorePlot.framework in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -83,6 +82,7 @@
 				4E4965461434043A0039A33B /* OpenGL.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				4E61BE59132FACFB00BE670F /* CoreData.framework in Frameworks */,
+				840F5D58177DE71E0033E964 /* BAFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +368,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Vendor/Frameworks/Release\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -376,8 +380,6 @@
 				INFOPLIST_FILE = "Perlin Terrain/Perlin_Terrain-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
-					"-framework",
-					CorePlot,
 					"-framework",
 					BAFoundation,
 					"-framework",
@@ -393,14 +395,16 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Vendor/Frameworks/Release\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Perlin Terrain/Perlin_Terrain_Prefix.pch";
 				INFOPLIST_FILE = "Perlin Terrain/Perlin_Terrain-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
-					"-framework",
-					CorePlot,
 					"-framework",
 					BAFoundation,
 					"-framework",
@@ -413,6 +417,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -438,6 +443,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;

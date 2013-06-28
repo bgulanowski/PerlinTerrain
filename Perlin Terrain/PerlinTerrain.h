@@ -24,7 +24,6 @@
 	NSWindow *cameraSetupPanel;
 }
 
-@property (assign) IBOutlet NSWindow *plotWindow;
 @property (assign) IBOutlet NSWindow *terrainWindow;
 @property (assign) IBOutlet NSWindow *cameraSetupPanel;
 

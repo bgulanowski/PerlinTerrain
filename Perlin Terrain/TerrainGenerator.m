@@ -9,11 +9,18 @@
 #import "TerrainGenerator.h"
 
 
+static NSString *const PTBaseNoiseEncodingKey = @"baseNoise";
+static NSString *const PTOverlayNoiseEncodingKey = @"overlayNoise";
+static NSString *const PTGradientStartEncodingKey = @"gradientStart";
+static NSString *const PTGradientEndEncodingKey = @"gradientEnd";
+
 @implementation TerrainGenerator
 
 @synthesize baseNoise, overlayNoise;
 @synthesize scale;
 @synthesize gradientStart, gradientEnd, useGradient;
+
+#pragma mark - NSObject
 
 - (void)dealloc {
     self.baseNoise = nil;
@@ -31,6 +38,8 @@
     
     return self;
 }
+
+#pragma mark - Initializers
 
 - (id)initWithBaseNose:(id<BANoise>)base overlay:(id<BANoise>)overlay {
     self = [self init];
@@ -50,25 +59,43 @@
     return [self initWithBaseNose:[BANoiseMaker randomNoise] overlay:[BANoiseMaker randomNoise]];
 }
 
-- (double)evaluateX:(double)x Y:(double)y Z:(double)z {
-    return [baseNoise evaluateX:x Y:y Z:z] + [overlayNoise evaluateX:x Y:y Z:z];
+#pragma mark - NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+	[aCoder encodeObject:self.baseNoise forKey:PTBaseNoiseEncodingKey];
+	[aCoder encodeObject:self.overlayNoise forKey:PTOverlayNoiseEncodingKey];
+	[aCoder encodeFloat:gradientStart forKey:PTGradientStartEncodingKey];
+	[aCoder encodeFloat:gradientEnd forKey:PTGradientEndEncodingKey];
 }
 
-- (double)blendX:(double)x Y:(double)y Z:(double)z octaves:(unsigned)octave_count persistence:(double)persistence function:(int)func {
-    
-//    GLfloat accent = __inline_signbitd([overlayNoise blendX:x*0.25f+0.5f Y:y*0.25f+0.5f Z:z*0.25f+0.5f octaves:1 persistence:0.5f function:0]);
-    
-    double gradient = 0;
-    double base = [baseNoise blendX:x*scale.s.w Y:y*scale.s.h Z:z*scale.s.d octaves:octave_count persistence:persistence function:func];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	self = [super init];
+	if (self) {
+		self.baseNoise = [aDecoder decodeObjectForKey:PTBaseNoiseEncodingKey];
+		self.overlayNoise = [aDecoder decodeObjectForKey:PTOverlayNoiseEncodingKey];
+		gradientStart = [aDecoder decodeFloatForKey:PTGradientStartEncodingKey];
+		gradientEnd = [aDecoder decodeFloatForKey:PTGradientEndEncodingKey];
+	}
+	return self;
+}
 
-    if(useGradient && gradientStart != gradientEnd) {
-        if(y >= gradientEnd)
-            gradient = 1.0f;
-        else if(y > gradientStart)
-            gradient = 2.0f * (y - gradientStart) / (gradientEnd - gradientStart) - 1.0f;
-    }
-        
-    return base - gradient;
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+	TerrainGenerator *copy = [[[self class] alloc] init];
+	if (copy) {
+		copy.baseNoise = [self.baseNoise copy];
+		copy.overlayNoise = [self.overlayNoise copy];
+		copy.gradientStart = self.gradientStart;
+		copy.gradientEnd = self.gradientEnd;
+	}
+	return copy;
+}
+
+#pragma mark - BANoise
+
+- (double)evaluateX:(double)x Y:(double)y Z:(double)z {
+    return [baseNoise evaluateX:x Y:y Z:z] + [overlayNoise evaluateX:x Y:y Z:z];
 }
 
 @end

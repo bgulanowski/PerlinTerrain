@@ -24,8 +24,8 @@
     BOOL useGradient;
 }
 
-@property (nonatomic, retain) BANoiseMaker *baseNoise;
-@property (nonatomic, retain) BANoiseMaker *overlayNoise;
+@property (nonatomic, copy) BANoiseMaker *baseNoise;
+@property (nonatomic, copy) BANoiseMaker *overlayNoise;
 @property (nonatomic) BAScalef scale;
 @property (nonatomic) GLfloat gradientStart;
 @property (nonatomic) GLfloat gradientEnd;

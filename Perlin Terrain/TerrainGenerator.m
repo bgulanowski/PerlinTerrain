@@ -84,8 +84,8 @@ static NSString *const PTGradientEndEncodingKey = @"gradientEnd";
 - (id)copyWithZone:(NSZone *)zone {
 	TerrainGenerator *copy = [[[self class] alloc] init];
 	if (copy) {
-		copy.baseNoise = [self.baseNoise copy];
-		copy.overlayNoise = [self.overlayNoise copy];
+		copy.baseNoise = self.baseNoise;
+		copy.overlayNoise = self.overlayNoise;
 		copy.gradientStart = self.gradientStart;
 		copy.gradientEnd = self.gradientEnd;
 	}

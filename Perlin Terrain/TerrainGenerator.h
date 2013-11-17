@@ -31,7 +31,7 @@
 @property (nonatomic) GLfloat gradientEnd;
 @property (nonatomic) BOOL useGradient;
 
-- (id)initWithBaseNose:(id<BANoise>)base overlay:(id<BANoise>)overlay;
+- (id)initWithBaseNoise:(id<BANoise>)base overlay:(id<BANoise>)overlay;
 - (id)initWithStandardNoise;
 - (id)initWithRandomNoise;
 

@@ -41,7 +41,7 @@ static NSString *const PTGradientEndEncodingKey = @"gradientEnd";
 
 #pragma mark - Initializers
 
-- (id)initWithBaseNose:(id<BANoise>)base overlay:(id<BANoise>)overlay {
+- (id)initWithBaseNoise:(id<BANoise>)base overlay:(id<BANoise>)overlay {
     self = [self init];
     if(self) {
         self.baseNoise = base;
@@ -52,11 +52,11 @@ static NSString *const PTGradientEndEncodingKey = @"gradientEnd";
 }
 
 - (id)initWithStandardNoise {
-    return [self initWithBaseNose:[[[BANoiseMaker alloc] init] autorelease] overlay:[[[BANoiseMaker alloc] init] autorelease]];
+    return [self initWithBaseNoise:[[[BANoiseMaker alloc] init] autorelease] overlay:[[[BANoiseMaker alloc] init] autorelease]];
 }
 
 - (id)initWithRandomNoise {
-    return [self initWithBaseNose:[BANoiseMaker randomNoise] overlay:[BANoiseMaker randomNoise]];
+    return [self initWithBaseNoise:[BANoiseMaker randomNoise] overlay:[BANoiseMaker randomNoise]];
 }
 
 #pragma mark - NSCoding

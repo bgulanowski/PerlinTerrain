@@ -18,7 +18,7 @@
 #import "BAPartition+PerlinTerrain.h"
 
 
-#define SPACE_DIMENSION 32.f
+#define SPACE_DIMENSION 64.f
 
 
 @interface PerlinTerrain ()
@@ -39,8 +39,9 @@
 - (id)init {
 	self = [super init];
 	if(self) {
-        nm = [[TerrainGenerator alloc] initWithRandomNoise];
+        nm = [[TerrainGenerator alloc] initWithStandardNoise];
         [self.context setUndoManager:nil];
+		self.stage = [self.context stage];
 	}
 	return self;
 }

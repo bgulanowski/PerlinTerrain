@@ -15,10 +15,9 @@
 		4E6F725B143BC1F10012D9B6 /* BAPartition+PerlinTerrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6F725A143BC1F10012D9B6 /* BAPartition+PerlinTerrain.m */; };
 		4EC219F9143DC82300566E93 /* TerrainGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC219F8143DC82300566E93 /* TerrainGenerator.m */; };
 		4EDE01AB12EB1C420076F1A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
-		840F5D58177DE71E0033E964 /* BAFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84EFE8C616E295A40053A6F0 /* BAFoundation.framework */; };
+		84357C04183AF42500664A68 /* BAFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C616E295A40053A6F0 /* BAFoundation.framework */; };
+		84357C05183AF42500664A68 /* BAScene.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C716E295A40053A6F0 /* BAScene.framework */; };
 		849BD20816BEB93300CFDCCC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849BD20716BEB93300CFDCCC /* CoreVideo.framework */; };
-		84EFE8CA16E295A40053A6F0 /* BAScene.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C716E295A40053A6F0 /* BAScene.framework */; };
-		84EFE8CB16E295A40053A6F0 /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C816E295A40053A6F0 /* CorePlot.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -31,8 +30,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84EFE8CA16E295A40053A6F0 /* BAScene.framework in CopyFiles */,
-				84EFE8CB16E295A40053A6F0 /* CorePlot.framework in CopyFiles */,
+				84357C04183AF42500664A68 /* BAFoundation.framework in CopyFiles */,
+				84357C05183AF42500664A68 /* BAScene.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -60,7 +59,6 @@
 		849BD20716BEB93300CFDCCC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		84EFE8C616E295A40053A6F0 /* BAFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BAFoundation.framework; path = Vendor/Frameworks/Release/BAFoundation.framework; sourceTree = "<group>"; };
 		84EFE8C716E295A40053A6F0 /* BAScene.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BAScene.framework; path = Vendor/Frameworks/Release/BAScene.framework; sourceTree = "<group>"; };
-		84EFE8C816E295A40053A6F0 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = Vendor/Frameworks/Release/CorePlot.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Perlin_Terrain-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Perlin_Terrain-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Perlin Terrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Perlin Terrain.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,7 +80,6 @@
 				4E4965461434043A0039A33B /* OpenGL.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				4E61BE59132FACFB00BE670F /* CoreData.framework in Frameworks */,
-				840F5D58177DE71E0033E964 /* BAFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +187,6 @@
 			children = (
 				84EFE8C616E295A40053A6F0 /* BAFoundation.framework */,
 				84EFE8C716E295A40053A6F0 /* BAScene.framework */,
-				84EFE8C816E295A40053A6F0 /* CorePlot.framework */,
 			);
 			name = Copied;
 			sourceTree = "<group>";
@@ -222,7 +218,6 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				4E496548143406F60039A33B /* CopyFiles */,
-				849BD20216BDA73800CFDCCC /* Update Framework Paths */,
 			);
 			buildRules = (
 			);
@@ -274,23 +269,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		849BD20216BDA73800CFDCCC /* Update Framework Paths */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Update Framework Paths";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "CORE_PLOT=\"CorePlot.framework/Versions/A/CorePlot\"\nPRODUCT_PATH=\"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n\n#install_name_tool -change \"@loader_path/../Frameworks/${CORE_PLOT}\" \"${VENDOR_FRAMEWORKS}/${CONFIGURATION}/${CORE_PLOT}\" \"${PRODUCT_PATH}\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4EDE019C12EB1C0B0076F1A3 /* Sources */ = {
@@ -370,7 +348,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Vendor/Frameworks/Release\"",
+					/Users/brent/Dev/github/PerlinTerrain/Vendor/Frameworks/Release,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -397,7 +375,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/Vendor/Frameworks/Release\"",
+					/Users/brent/Dev/github/PerlinTerrain/Vendor/Frameworks/Release,
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

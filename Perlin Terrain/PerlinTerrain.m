@@ -17,6 +17,8 @@
 #import "BAProp+PerlinTerrain.h"
 #import "BAPartition+PerlinTerrain.h"
 
+#import <OpenGL/gl.h>
+
 
 #define SPACE_DIMENSION 64.f
 

@@ -15,8 +15,8 @@
 		4E6F725B143BC1F10012D9B6 /* BAPartition+PerlinTerrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6F725A143BC1F10012D9B6 /* BAPartition+PerlinTerrain.m */; };
 		4EC219F9143DC82300566E93 /* TerrainGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC219F8143DC82300566E93 /* TerrainGenerator.m */; };
 		4EDE01AB12EB1C420076F1A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
-		84357C04183AF42500664A68 /* BAFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C616E295A40053A6F0 /* BAFoundation.framework */; };
-		84357C05183AF42500664A68 /* BAScene.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C716E295A40053A6F0 /* BAScene.framework */; };
+		84357C04183AF42500664A68 /* BAFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C616E295A40053A6F0 /* BAFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		84357C05183AF42500664A68 /* BAScene.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84EFE8C716E295A40053A6F0 /* BAScene.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		849BD20816BEB93300CFDCCC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849BD20716BEB93300CFDCCC /* CoreVideo.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -235,7 +235,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Bored Astronaut";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Perlin Terrain" */;
@@ -363,6 +363,7 @@
 					"-framework",
 					BAScene,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lichenlabs.perlin-terrain";
 				PRODUCT_NAME = "Perlin Terrain";
 			};
 			name = Debug;
@@ -388,6 +389,7 @@
 					"-framework",
 					BAScene,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lichenlabs.perlin-terrain";
 				PRODUCT_NAME = "Perlin Terrain";
 			};
 			name = Release;
@@ -395,17 +397,30 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Vendor/Frameworks/$(CONFIGURATION)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -420,15 +435,27 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Vendor/Frameworks/$(CONFIGURATION)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

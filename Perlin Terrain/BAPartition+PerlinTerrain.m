@@ -22,7 +22,7 @@
 -  (void)buildTerrainWithNoise:(TerrainGenerator *)tg {
     
     static BAScalef normalScale = {{ 1.0f/16.0f, 1.0f/16.0f, 1.0f/16.0f }};
-    BAVoxelArray *voxels = [[BAVoxelArray voxelArrayInRegion:self.region scale:normalScale precision:4 noise:tg] voxelArrayByRemovingHiddenBits];
+    BAVoxelArray *voxels = [BAVoxelArray voxelArrayInRegion:self.region scale:normalScale precision:4 noise:tg];
     BAProp *prop = [self.managedObjectContext terrainPropWithRegion:self.region voxels:voxels];
     
     [self.userData setObject:voxels forKey:@"Voxels"];
